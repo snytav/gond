@@ -28,6 +28,8 @@ np.savetxt('mask_ft_im.txt',
 
 # Do not forget the pixel size d when creating the frequency support
 freq_support=np.fft.fftshift(np.fft.fftfreq(128,d=dx))
+freq = np.fft.fftfreq(128,d=dx)
+np.savetxt('freq.txt',freq,fmt='%25.15e')
 # Analytical Fourier Transform
 mask_ana_ft=np.sinc(freq_support * dot_size)*dot_size/dx
 # Plotting section

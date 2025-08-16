@@ -39,6 +39,9 @@ mask_ft_py_im = dlmread('mask_ana_ft_im.txt')
 eps_mask_ft_re = max(abs(real(mask_ft)-mask_ft_py_re'))
 eps_mask_ft_im = max(abs(real(mask_ft)-mask_ft_py_im'))
 
+freq = fftfreq(128, dx);
+freq_py = dlmread("freq.txt");
+eps_freq = max(abs(freq-freq_py'));
 % Do not forget the pixel size d when creating the frequency support
 freq_support = fftshift(fftfreq(128, dx));
 % Analytical Fourier Transform
