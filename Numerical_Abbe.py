@@ -32,6 +32,12 @@ freq = np.fft.fftfreq(128,d=dx)
 np.savetxt('freq.txt',freq,fmt='%25.15e')
 # Analytical Fourier Transform
 mask_ana_ft=np.sinc(freq_support * dot_size)*dot_size/dx
+
+np.savetxt('freq_sup_re.txt',np.real(freq_support),fmt='%25.15e')
+np.savetxt('freq_sup_im.txt',np.imag(freq_support),fmt='%25.15e')
+
+np.savetxt('freq.txt',freq,fmt='%25.15e')
+
 # Plotting section
 plt.title('Mask Fourier Transform')
 plt.plot(freq_support,np.abs(mask_ft),label='Numeric FT')

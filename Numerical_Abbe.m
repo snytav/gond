@@ -44,7 +44,12 @@ freq_py = dlmread("freq.txt");
 eps_freq = max(abs(freq-freq_py'));
 % Do not forget the pixel size d when creating the frequency support
 freq_support = fftshift(fftfreq(128, dx));
-% Analytical Fourier Transform
+freq_support_py_im = dlmread('freq_sup_im.txt');
+freq_support_py_re = dlmread('freq_sup_re.txt');
+eps_freq_support_py_re = max(abs(real(freq_support)-freq_support_py_re'))
+eps_freq_support_py_im = max(abs(imag(freq_support)-freq_support_py_im'))
+
+;% Analytical Fourier Transform
 mask_ana_ft = sinc(freq_support * dot_size) * dot_size / dx;
 % Plotting section
 figure;
