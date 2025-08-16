@@ -51,6 +51,11 @@ eps_freq_support_py_im = max(abs(imag(freq_support)-freq_support_py_im'))
 
 ;% Analytical Fourier Transform
 mask_ana_ft = sinc(freq_support * dot_size) * dot_size / dx;
+mask_ana_ft_py_re = dlmread('mask_ana_ft_re.txt')
+mask_ana_ft_py_im = dlmread('mask_ana_ft_im.txt')
+eps_mask_ana_ft_py_re = max(abs(real(mask_ana_ft)-mask_ana_ft_py_re'))
+eps_mask_ana_ft_py_im = max(abs(imag(mask_ana_ft)-mask_ana_ft_py_im'))
+
 % Plotting section
 figure;
 title('Mask Fourier Transform');
