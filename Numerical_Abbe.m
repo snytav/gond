@@ -1,5 +1,7 @@
+syms x y lambda;
 % Define the chromium dot size in nanometers
 dot_size = 250;
+
 
 % Define the mask support (x support)
 % Since we compute FT, better to choose a 2^n number of points
@@ -10,6 +12,21 @@ dx = 2000 / 128;
 
 % Define the mask, 1 for glass, 0 for chromium
 mask = abs(x_support) < dot_size / 2;
+%TODO:1. draw mask vs. X
+figure;
+plot(x_support,mask,'r')
+xlabel('X');
+hold on;
+title('mask');
+a = dot_size;
+object = heaviside(x + a/2)- heaviside(x - a/2); % where 'a' is the slit width
+fplot(object,[-1000,1000],'g');
+legend('numeric','symbolic');
+hold off;
+
+
+%     2. define symbolic mask and draw       
+
 
 % Plot
 figure;
